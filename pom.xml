@@ -17,6 +17,7 @@
         <module>operate</module>
         <module>express</module>
         <module>product-dev</module>
+        <module>commont</module>
     </modules>
 
     <groupId>com.kyrie</groupId>
