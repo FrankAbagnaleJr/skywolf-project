@@ -42,9 +42,14 @@ public class Result<T> implements Serializable {
         return new Result<T>(ResultCode.SYSTEM_EXCEPTION_ERROR.getCode(), ResultCode.SYSTEM_EXCEPTION_ERROR.getMsg(), null);
     }
 
+    public static <T> Result<T> failed(String message) {
+        return new Result<T>(ResultCode.SYSTEM_EXCEPTION_ERROR.getCode(), message,null);
+    }
+
     public static <T> Result<T> failed(ResultCode resultCode) {
         return new Result<T>(resultCode.getCode(),resultCode.getMsg(),null);
     }
+
 
     public static <T> Result<T> failed(ResultCode resultCode,String msg) {
         return new Result<T>(resultCode.getCode(),msg,null);

@@ -1,5 +1,6 @@
 package com.kyrie.page;
 
+import com.kyrie.exception.BizException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,4 +20,5 @@ import lombok.ToString;
 public class PageDto {
     private Long pageNum = 1L;
     private Long pageSize = 10L;
+
 }

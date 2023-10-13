@@ -21,7 +21,8 @@ public enum ResultCode implements Serializable {
 
     SUCCESS("201","一切ok"),
     PARAM_ERRPR("P400","非法参数"),
-    SYSTEM_EXCEPTION_ERROR("B001","系统异常错误");
+    BIZ_EXCEPTION_ERROR("B001","系统异常错误"),
+    SYSTEM_EXCEPTION_ERROR("9999","系统异常错误");
     private String code;
     private String msg;
 
