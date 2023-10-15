@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyrie.mapper.LstDayDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kyrie.pojo.LstDayData">
+        <result column="asin" property="asin" />
+        <result column="lst_state_code" property="lstStateCode" />
+        <result column="seller_num" property="sellerNum" />
+        <result column="sales_money" property="salesMoney" />
+        <result column="price" property="price" />
+        <result column="estimate_profit" property="estimateProfit" />
+        <result column="sales" property="sales" />
+        <result column="class_big" property="classBig" />
+        <result column="class_big_rank" property="classBigRank" />
+        <result column="class_smal" property="classSmal" />
+        <result column="class_smal_rank" property="classSmalRank" />
+        <result column="review_num" property="reviewNum" />
+        <result column="rating" property="rating" />
+        <result column="buyer_visits" property="buyerVisits" />
+        <result column="page_visits" property="pageVisits" />
+        <result column="buyer_sound" property="buyerSound" />
+        <result column="return_num" property="returnNum" />
+        <result column="return_money" property="returnMoney" />
+        <result column="note" property="note" />
+        <result column="country_id" property="countryId" />
+        <result column="date" property="date" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        asin, lst_state_code, seller_num, sales_money, price, estimate_profit, sales, class_big, class_big_rank, class_smal, class_smal_rank, review_num, rating, buyer_visits, page_visits, buyer_sound, return_num, return_money, note, country_id, date
+    </sql>
+
+</mapper>

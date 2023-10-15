@@ -4,7 +4,6 @@ import com.kyrie.result.ResultCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @Auther: 冀金梁

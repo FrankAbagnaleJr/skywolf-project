@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyrie.mapper.ProductInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kyrie.pojo.ProductInfo">
+        <id column="product_id" property="productId" />
+        <result column="product_length" property="productLength" />
+        <result column="product_wide" property="productWide" />
+        <result column="product_high" property="productHigh" />
+        <result column="package_length" property="packageLength" />
+        <result column="package_wide" property="packageWide" />
+        <result column="package_high" property="packageHigh" />
+        <result column="product_weight" property="productWeight" />
+        <result column="gross_weigh" property="grossWeigh" />
+        <result column="cost" property="cost" />
+        <result column="buy_url" property="buyUrl" />
+        <result column="fba_fee" property="fbaFee" />
+        <result column="express_code" property="expressCode" />
+        <result column="user_id" property="userId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        product_id, product_length, product_wide, product_high, package_length, package_wide, package_high, product_weight, gross_weigh, cost, buy_url, fba_fee, express_code, user_id
+    </sql>
+
+</mapper>

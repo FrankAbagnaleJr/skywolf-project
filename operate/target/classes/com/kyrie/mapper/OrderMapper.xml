@@ -17,12 +17,4 @@
         order_id, order_money, order_num, product_id, country_id, date
     </sql>
 
-
-    <select id="selectOrderByParams" resultType="com.kyrie.pojo.dto.OrderQueryDto">
-
-
-
-    </select>
-
-
 </mapper>

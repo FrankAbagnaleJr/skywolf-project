@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyrie.mapper.CountrySalesDayDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kyrie.pojo.CountrySalesDayData">
+        <result column="country" property="country" />
+        <result column="store_balance" property="storeBalance" />
+        <result column="store_state_score" property="storeStateScore" />
+        <result column="store_ipi" property="storeIpi" />
+        <result column="store_review" property="storeReview" />
+        <result column="store_rating" property="storeRating" />
+        <result column="store_sales" property="storeSales" />
+        <result column="store_sales_money" property="storeSalesMoney" />
+        <result column="return_num" property="returnNum" />
+        <result column="return_money" property="returnMoney" />
+        <result column="store_profit" property="storeProfit" />
+        <result column="store_balance_change" property="storeBalanceChange" />
+        <result column="fba_stock" property="fbaStock" />
+        <result column="fba_stock_cost" property="fbaStockCost" />
+        <result column="day_store_fee" property="dayStoreFee" />
+        <result column="roi" property="roi" />
+        <result column="goz" property="goz" />
+        <result column="goz_stream" property="gozStream" />
+        <result column="store_score" property="storeScore" />
+        <result column="note" property="note" />
+        <result column="date" property="date" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        country, store_balance, store_state_score, store_ipi, store_review, store_rating, store_sales, store_sales_money, return_num, return_money, store_profit, store_balance_change, fba_stock, fba_stock_cost, day_store_fee, roi, goz, goz_stream, store_score, note, date
+    </sql>
+
+</mapper>
