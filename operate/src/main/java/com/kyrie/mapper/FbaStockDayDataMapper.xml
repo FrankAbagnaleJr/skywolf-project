@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyrie.mapper.FbaStockDayDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kyrie.pojo.FbaStockDayData">
+        <result column="asin" property="asin" />
+        <result column="fba_sale_num" property="fbaSaleNum" />
+        <result column="fba_allocate_num" property="fbaAllocateNum" />
+        <result column="fba_no_sale_num" property="fbaNoSaleNum" />
+        <result column="fba_way_num" property="fbaWayNum" />
+        <result column="country_id" property="countryId" />
+        <result column="date" property="date" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        asin, fba_sale_num, fba_allocate_num, fba_no_sale_num, fba_way_num, country_id, date
+    </sql>
+
+</mapper>

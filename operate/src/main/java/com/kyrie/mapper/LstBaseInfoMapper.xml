@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyrie.mapper.LstBaseInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kyrie.pojo.LstBaseInfo">
+        <id column="lst_id" property="lstId" />
+        <result column="image_url" property="imageUrl" />
+        <result column="asin_parent" property="asinParent" />
+        <result column="asin" property="asin" />
+        <result column="sku" property="sku" />
+        <result column="product_id" property="productId" />
+        <result column="country_id" property="countryId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        lst_id, image_url, asin_parent, asin, sku, product_id, country_id
+    </sql>
+
+</mapper>

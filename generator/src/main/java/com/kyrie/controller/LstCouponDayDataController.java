@@ -1,0 +1,20 @@
+package com.kyrie.controller;
+
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author 冀金梁
+ * @since 2023-10-15
+ */
+@RestController
+@RequestMapping("/lst-coupon-day-data")
+public class LstCouponDayDataController {
+
+}
