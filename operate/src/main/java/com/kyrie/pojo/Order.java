@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author 冀金梁
@@ -31,10 +31,13 @@ public class Order implements Serializable {
     private Double orderMoney;
     @ExcelProperty("订单数量")
     private Integer orderNum;
-    @ExcelProperty("订单产品")
-    private Integer productId;
     @ExcelProperty("订单状态")
     private String orderState;
+    //    @ExcelProperty("订单产品")
+//    private Integer productId;
+    @ExcelProperty("订单产品")
+    private String sku;
+
     @ExcelProperty("订单国家")
     private Integer countryId;
     @ExcelProperty("时间")

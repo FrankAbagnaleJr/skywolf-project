@@ -1,5 +1,6 @@
 package com.kyrie.pojo.dto;
 
+import com.kyrie.pojo.LstBaseInfo;
 import com.kyrie.pojo.Order;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +18,6 @@ import org.apache.commons.math3.stat.descriptive.summary.Product;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderQueryDto extends Order {
-
-    private String productName;
-    private String productManager;
+    private LstBaseInfo listing;
+    private String country;
 }
