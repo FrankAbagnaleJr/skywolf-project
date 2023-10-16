@@ -35,7 +35,7 @@ public class Order implements Serializable {
     private String orderState;
     //    @ExcelProperty("订单产品")
 //    private Integer productId;
-    @ExcelProperty("订单产品")
+    @ExcelProperty("sku")
     private String sku;
 
     @ExcelProperty("订单国家")

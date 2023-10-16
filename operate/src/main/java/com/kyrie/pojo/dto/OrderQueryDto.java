@@ -1,7 +1,9 @@
 package com.kyrie.pojo.dto;
 
+import com.kyrie.pojo.Employee;
 import com.kyrie.pojo.LstBaseInfo;
 import com.kyrie.pojo.Order;
+import com.kyrie.pojo.ProductInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +23,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class OrderQueryDto extends Order {
     private LstBaseInfo listing;
+    private String product;
+    private String manager;
     private String country;
-    private Date beforeData;
-    private Date aftereData;
 
 }

@@ -47,30 +47,24 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Override
     public List<OrderQueryDto>  queryOrderByParams(PageDto pageDto, OrderQueryParamDto params) {
 
-        //分页参数
-        Long pageNum = pageDto.getPageNum();
-        Long pageSize = pageDto.getPageSize();
-        //订单号
-        String orderId = params.getOrderId();
-        //订单状态
-        String orderState = params.getOrderState();
-        //产品名字
-        String procuctName = params.getProcuctName();
-        //asin
-        String asin = params.getAsin();
-        //sku
-        String sku = params.getSku();
-        //负责人
-        String manager = params.getManager();
-        //订单日期
-        Date orderDate = params.getOrderDate();
-
-
-        LambdaQueryWrapper<OrderQueryDto> lqw = new LambdaQueryWrapper<>();
-
-
-
-
+//        //分页参数
+//        Long pageNum = pageDto.getPageNum();
+//        Long pageSize = pageDto.getPageSize();
+//        //订单号
+//        String orderId = params.getOrderId();
+//        //订单状态
+//        String orderState = params.getOrderState();
+//        //产品名字
+//        String procuctName = params.getProcuctName();
+//        //asin
+//        String asin = params.getAsin();
+//        //sku
+//        String sku = params.getSku();
+//        //负责人
+//        String manager = params.getManager();
+//        //订单日期
+//        Date orderDate = params.getOrderDate();
+//
 
 
         List<OrderQueryDto> list =  orderMapper.selectOrderByParams(pageDto,params);

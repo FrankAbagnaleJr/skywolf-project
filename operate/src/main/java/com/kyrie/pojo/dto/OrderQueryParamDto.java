@@ -31,7 +31,9 @@ public class OrderQueryParamDto {
     //负责人
     private String manager;
     //订单日期
-    private Date orderDate;
+    private Date beforeData;
+
+    private Date aftereData;
 
 
 
