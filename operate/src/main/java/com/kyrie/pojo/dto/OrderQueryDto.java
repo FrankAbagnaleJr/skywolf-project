@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.math3.stat.descriptive.summary.Product;
 
+import java.util.Date;
+
 /**
  * @auther: jijin
  * @date: 2023/10/15 21:43 周日
@@ -20,4 +22,7 @@ import org.apache.commons.math3.stat.descriptive.summary.Product;
 public class OrderQueryDto extends Order {
     private LstBaseInfo listing;
     private String country;
+    private Date beforeData;
+    private Date aftereData;
+
 }
