@@ -14,7 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class PageDto {
-    private Long pageNum;
-    private Long pageSize;
+    private long pageNum;
+    private long pageSize;
 
 }

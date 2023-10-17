@@ -45,7 +45,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
-    public List<OrderQueryDto>  queryOrderByParams(PageDto pageDto, OrderQueryParamDto params) {
+    public List<OrderQueryDto>  queryOrderByParams(PageDto page, OrderQueryParamDto params) {
 
 //        //分页参数
 //        Long pageNum = pageDto.getPageNum();
@@ -65,24 +65,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 //        //订单日期
 //        Date orderDate = params.getOrderDate();
 
-        Long pageNum;
-        if (pageDto.getPageNum() < 1) {
-            pageNum = 0L;
-        }else {
-            pageNum = pageDto.getPageNum() -1;
-        }
-
-        Long pageSize;
-        if (pageDto.getPageSize() < 1) {
-            pageSize = 10L;
-        }else if(pageDto.getPageSize() == 1) {
-            pageSize = 1L;
-        }else {
-            pageSize = pageDto.getPageSize();
-        }
+        long pageNum =0L;
+        long pageSize=10L;
+        if(page.getPageNum() > 0) pageNum = page.getPageNum() - 1;
+        if (page.getPageSize() >= 1) pageSize = page.getPageSize();
 
         List<OrderQueryDto> list =  orderMapper.selectOrderByParams(new PageDto(pageNum,pageSize),params);
-
         return list;
     }
 
