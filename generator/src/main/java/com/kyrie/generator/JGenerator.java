@@ -63,7 +63,7 @@ public class JGenerator {
 			"t_lst_coupon_day_data",
 			"t_lst_day_data",
 			"t_order",
-			"t_pruduct_info",
+			"t_product_info",
 			"t_store_info",
 			"t_employee",
 			"t_department",
