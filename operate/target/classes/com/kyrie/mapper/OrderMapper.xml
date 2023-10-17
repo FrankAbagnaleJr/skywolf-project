@@ -4,17 +4,84 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.kyrie.pojo.Order">
-        <id column="order_id" property="orderId" />
-        <result column="order_money" property="orderMoney" />
-        <result column="order_num" property="orderNum" />
-        <result column="product_id" property="productId" />
-        <result column="country_id" property="countryId" />
-        <result column="date" property="date" />
+        <id column="order_id" property="orderId"/>
+        <result column="order_money" property="orderMoney"/>
+        <result column="order_num" property="orderNum"/>
+        <result column="sku" property="sku"/>
+        <result column="country_id" property="countryId"/>
+        <result column="date" property="date"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        order_id, order_money, order_num, product_id, country_id, date
+        order_id
+        , order_money, order_num, product_id, country_id, date
     </sql>
+
+    <sql id="Base_Column_Order">
+        o.order_id order_id, o.order_money order_money, o.order_num order_num, o.order_state order_state,d.country country ,o.date ate,
+            l.sku sku,l.asin asin,l.image_url url,l.product_id product_id,p.name name
+
+    </sql>
+
+    <resultMap id="orderByParams" type="com.kyrie.pojo.dto.OrderQueryDto">
+        <id column="order_id" property="orderId"/>
+        <result column="order_money" property="orderMoney"/>
+        <result column="order_num" property="orderNum"/>
+        <result column="order_state" property="orderState"/>
+        <result column="country" property="country"/>
+        <result column="date" property="date"/>
+        <result column="name" property="product" />
+        <result column="manager" property="manager" />
+
+        <!--
+            封装类中的属性对象
+            property：是实体类（Order）中的属性名称（private String sku）
+            javaType：当前实体中的属性的类型 LstBaseInfo
+         -->
+        <association property="listing" javaType="com.kyrie.pojo.LstBaseInfo">
+            <id column="sku" property="sku" />
+            <result column="asin" property="asin" />
+            <result column="url" property="imageUrl" />
+        </association>
+    </resultMap>
+
+
+    <select id="selectOrderByParams" resultMap="orderByParams" parameterType="com.kyrie.pojo.dto.OrderQueryParamDto">
+        select o.order_id order_id, o.order_money order_money, o.order_num order_num, o.order_state order_state,d.country country ,o.date ate,l.sku sku,l.asin asin,l.image_url url,l.product_id product_id,p.name name,e.user_name manager
+        from t_order o
+        left join t_lst_base_info l on o.sku = l.sku
+        left join t_product_info p on l.product_id = p.product_id
+        left join t_dic_country d on o.country_id = d.country_id
+        left join t_employee e on p.user_id = e.user_id
+        <trim prefix="whrer" prefixOverrides="and|or">
+        <if test="orderId != null and orderId != ''">
+            o.order_id = '#{arg1}'
+        </if>
+        <if test="orderState != null and orderState! = ''">
+            and o.order_state = '#{orderState}'
+        </if>
+        <if test="procuctName != null and procuctName != ''">
+            and p.`name`= '#{procuctName}'
+        </if>
+        <if test="asin != null and asin != ''">
+            and l.asin = '#{asin}'
+        </if>
+        <if test="sku != null and sku!= ''">
+            and l.sku = '#{sku}'
+        </if>
+        <if test="manager != null and manager!=''">
+            and e.user_name = '#{manager}'
+        </if>
+        <if test="beforeData != null and beforeData !=''">
+            and o.date &gt; '#{beforeData}'
+        </if>
+        <if test="aftereData != null and aftereData != ''">
+            and o.date &lt; '#{aftereData}'
+        </if>
+        </trim>
+
+    </select>
+
 
 </mapper>
