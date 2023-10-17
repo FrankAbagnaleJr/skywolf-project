@@ -46,8 +46,7 @@
 
 
     <select id="selectOrderByParams" resultMap="querOrder">
-        select o.id order_id, o.money order_money, o.num order_num, o.state order_state,d.country country ,o.date
-        date,l.sku sku,l.asin asin,l.image_url url,l.product_id product_id,p.name name,e.name manager
+        select <include refid="querOrderByParam" />
         from t_order o
         left join t_lst_base_info l on o.sku = l.sku
         left join t_product_info p on l.product_id = p.id
