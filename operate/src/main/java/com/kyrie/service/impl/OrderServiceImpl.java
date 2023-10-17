@@ -65,8 +65,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 //        //订单日期
 //        Date orderDate = params.getOrderDate();
 
-
-        List<OrderQueryDto> list =  orderMapper.selectOrderByParams(pageDto,params);
+        PageDto page = new PageDto(pageDto.getPageNum()-1,pageDto.getPageSize()-1);
+        List<OrderQueryDto> list =  orderMapper.selectOrderByParams(page,params);
 
         return list;
     }
