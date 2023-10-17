@@ -12,3 +12,10 @@ spring:
       url: jdbc:mysql://192.168.101.67:3306/skywolf?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: mysql
+
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    #可以看到SQL语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

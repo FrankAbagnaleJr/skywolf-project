@@ -39,9 +39,9 @@ public class GlobalExceptionHandle {
      * @return
      * @param <E>
      */
-    @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public <E> Result<E> handleException(Exception e) {
-        return Result.failed(e.getLocalizedMessage());
-    }
+//    @ExceptionHandler(Exception.class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public <E> Result<E> handleException(Exception e) {
+//        return Result.failed(e.getLocalizedMessage());
+//    }
 }

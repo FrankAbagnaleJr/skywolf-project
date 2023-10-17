@@ -30,7 +30,7 @@ public class ExcelImportListener extends AnalysisEventListener<Order> {
     public void invoke(Order order, AnalysisContext analysisContext) {
         boolean save = orderService.save(order);
         if (!save) {
-            log.error("数据导入失败！ "+ order.getOrderId());
+            log.error("数据导入失败！ "+ order.getId());
         }
     }
 

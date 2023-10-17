@@ -4,7 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.kyrie.pojo.ProductInfo">
-        <id column="product_id" property="productId" />
+        <id column="id" property="id" />
         <result column="product_length" property="productLength" />
         <result column="product_wide" property="productWide" />
         <result column="product_high" property="productHigh" />
@@ -18,11 +18,12 @@
         <result column="fba_fee" property="fbaFee" />
         <result column="express_code" property="expressCode" />
         <result column="user_id" property="userId" />
+        <result column="name" property="name" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        product_id, product_length, product_wide, product_high, package_length, package_wide, package_high, product_weight, gross_weigh, cost, buy_url, fba_fee, express_code, user_id
+        id, product_length, product_wide, product_high, package_length, package_wide, package_high, product_weight, gross_weigh, cost, buy_url, fba_fee, express_code, user_id, name
     </sql>
 
 </mapper>

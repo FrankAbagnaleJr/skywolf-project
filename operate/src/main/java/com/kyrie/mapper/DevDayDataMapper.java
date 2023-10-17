@@ -9,7 +9,7 @@ import com.kyrie.pojo.DevDayData;
  * </p>
  *
  * @author 冀金梁
- * @since 2023-10-15
+ * @since 2023-10-17
  */
 public interface DevDayDataMapper extends BaseMapper<DevDayData> {
 

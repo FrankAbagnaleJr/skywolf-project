@@ -4,13 +4,13 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.kyrie.pojo.ExpressPlan">
-        <id column="express_code" property="expressCode" />
+        <id column="id" property="id" />
         <result column="express_plan" property="expressPlan" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        express_code, express_plan
+        id, express_plan
     </sql>
 
 </mapper>

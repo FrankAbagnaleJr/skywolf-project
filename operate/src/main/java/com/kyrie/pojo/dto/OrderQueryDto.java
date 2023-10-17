@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.math3.stat.descriptive.summary.Product;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -21,7 +22,15 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderQueryDto extends Order {
+public class OrderQueryDto {
+
+    private String orderId;
+    private Double orderMoney;
+    private Integer orderNum;
+    private String orderState;
+    private String sku;
+    private LocalDateTime date;
+
     private LstBaseInfo listing;
     private String product;
     private String manager;

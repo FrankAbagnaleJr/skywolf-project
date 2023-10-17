@@ -9,7 +9,7 @@ import com.kyrie.pojo.LstCouponDayData;
  * </p>
  *
  * @author 冀金梁
- * @since 2023-10-15
+ * @since 2023-10-17
  */
 public interface LstCouponDayDataMapper extends BaseMapper<LstCouponDayData> {
 

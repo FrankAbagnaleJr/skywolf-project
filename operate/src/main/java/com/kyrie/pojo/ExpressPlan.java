@@ -12,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author 冀金梁
- * @since 2023-10-15
+ * @since 2023-10-17
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -24,12 +24,12 @@ public class ExpressPlan implements Serializable {
     /**
      * 编号
      */
-    private Integer expressCode;
+    private Integer id;
 
     /**
      * 运输方式
      */
-    private Integer expressPlan;
+    private String expressPlan;
 
 
 }

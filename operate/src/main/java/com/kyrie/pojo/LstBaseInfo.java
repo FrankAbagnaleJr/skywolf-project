@@ -1,6 +1,5 @@
 package com.kyrie.pojo;
 
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,11 +8,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- *
+ * 
  * </p>
  *
  * @author 冀金梁
- * @since 2023-10-15
+ * @since 2023-10-17
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -21,14 +20,14 @@ import java.io.Serializable;
 public class LstBaseInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @TableId
+
     private String sku;
-    //private Long lstId;
+
     private String asin;
 
-    private String imageUrl;
-
     private String asinParent;
+
+    private String imageUrl;
 
     private Long productId;
 

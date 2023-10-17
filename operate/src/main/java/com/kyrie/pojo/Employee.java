@@ -12,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author 冀金梁
- * @since 2023-10-15
+ * @since 2023-10-17
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -21,16 +21,34 @@ public class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer userId;
+    /**
+     * 员工编号
+     */
+    private Integer id;
 
-    private String userName;
+    /**
+     * 员工名字
+     */
+    private String name;
 
+    /**
+     * 员工年龄
+     */
     private Integer age;
 
+    /**
+     * 职位
+     */
     private String job;
 
+    /**
+     * 部门id
+     */
     private Integer departmentId;
 
+    /**
+     * 领导id
+     */
     private Integer managerId;
 
 

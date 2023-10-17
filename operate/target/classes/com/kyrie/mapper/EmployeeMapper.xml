@@ -4,8 +4,8 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.kyrie.pojo.Employee">
-        <id column="user_id" property="userId" />
-        <result column="user_name" property="userName" />
+        <id column="id" property="id" />
+        <result column="name" property="name" />
         <result column="age" property="age" />
         <result column="job" property="job" />
         <result column="department_id" property="departmentId" />
@@ -14,7 +14,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        user_id, user_name, age, job, department_id, manager_id
+        id, name, age, job, department_id, manager_id
     </sql>
 
 </mapper>

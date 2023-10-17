@@ -4,7 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.kyrie.pojo.StoreInfo">
-        <id column="store_id" property="storeId" />
+        <id column="id" property="id" />
         <result column="store_code" property="storeCode" />
         <result column="store_name" property="storeName" />
         <result column="country_id" property="countryId" />
@@ -12,7 +12,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        store_id, store_code, store_name, country_id
+        id, store_code, store_name, country_id
     </sql>
 
 </mapper>

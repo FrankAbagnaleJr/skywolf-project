@@ -19,15 +19,17 @@ import java.util.Date;
 public class OrderQueryParamDto {
 
     //订单号
-    private String orderId;
+    private String id;
     //订单状态
-    private String orderState;
+    private String state;
     //产品名字
-    private String procuctName;
+    private String name;
     //asin
     private String asin;
     //sku
     private String sku;
+    //国家
+    private String country;
     //负责人
     private String manager;
     //订单日期

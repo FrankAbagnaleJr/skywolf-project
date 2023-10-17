@@ -9,7 +9,7 @@ import com.kyrie.pojo.ProductInfo;
  * </p>
  *
  * @author 冀金梁
- * @since 2023-10-15
+ * @since 2023-10-17
  */
 public interface ProductInfoMapper extends BaseMapper<ProductInfo> {
 

@@ -12,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author 冀金梁
- * @since 2023-10-15
+ * @since 2023-10-17
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -21,9 +21,15 @@ public class DicLstState implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer lstStateCode;
+    /**
+     * 订单状态编号
+     */
+    private Integer id;
 
-    private Integer stste;
+    /**
+     * 订单状态
+     */
+    private String stste;
 
 
 }

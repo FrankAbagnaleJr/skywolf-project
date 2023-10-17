@@ -12,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author 冀金梁
- * @since 2023-10-15
+ * @since 2023-10-17
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -21,8 +21,14 @@ public class Department implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 部门id
+     */
     private Integer departmentId;
 
+    /**
+     * 部门
+     */
     private String name;
 
 
