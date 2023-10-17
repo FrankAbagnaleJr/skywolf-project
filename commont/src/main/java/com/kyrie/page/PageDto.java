@@ -1,10 +1,6 @@
 package com.kyrie.page;
 
-import com.kyrie.exception.BizException;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * @Auther: 冀金梁
@@ -18,7 +14,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class PageDto {
-    private Long pageNum = 1L;
+    private Long pageNum = 0L;
     private Long pageSize = 10L;
 
 }

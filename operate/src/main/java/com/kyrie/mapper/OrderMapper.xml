@@ -81,7 +81,7 @@
                 and o.date &lt; #{params.aftereData}
             </if>
         </trim>
-
+        limit #{page.pageNum},#{page.pageSize}
     </select>
 
 </mapper>

@@ -19,5 +19,5 @@ import java.util.List;
  */
 public interface OrderMapper extends BaseMapper<Order> {
 
-    List<OrderQueryDto> selectOrderByParams(PageDto pageDto,@Param("params")  OrderQueryParamDto params);
+    List<OrderQueryDto> selectOrderByParams(@Param("page") PageDto page,@Param("params")  OrderQueryParamDto params);
 }
