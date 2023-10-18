@@ -5,6 +5,8 @@ import com.kyrie.exception.BizException;
 import com.kyrie.page.PageParam;
 import com.kyrie.pojo.dto.OrderQueryDto;
 import com.kyrie.pojo.dto.OrderQueryParamDto;
+import com.kyrie.pojo.dto.ReportDto;
+import com.kyrie.pojo.dto.ReportParamsDto;
 import com.kyrie.result.Result;
 import com.kyrie.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +60,11 @@ public class OperateController {
         return Result.success(list);
     }
 
+    @PostMapping("/report")
+    public Result<ReportDto> getReport(ReportParamsDto params) {
+        ReportDto report =  orderService.getReport(params);
+        return Result.success("success", report);
+    }
 
 
 
