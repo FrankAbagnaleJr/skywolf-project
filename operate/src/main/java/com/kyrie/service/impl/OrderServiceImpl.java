@@ -1,8 +1,6 @@
 package com.kyrie.service.impl;
 
 import com.alibaba.excel.EasyExcel;
-import com.alibaba.fastjson2.JSON;
-import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kyrie.config.excel.ExcelImportListener;
 import com.kyrie.mapper.OrderMapper;
@@ -16,7 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -47,29 +45,17 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Override
     public List<OrderQueryDto>  queryOrderByParams(PageDto page, OrderQueryParamDto params) {
 
-//        //分页参数
-//        Long pageNum = pageDto.getPageNum();
-//        Long pageSize = pageDto.getPageSize();
-//        //订单号
-//        String orderId = params.getOrderId();
-//        //订单状态
-//        String orderState = params.getOrderState();
-//        //产品名字
-//        String procuctName = params.getProcuctName();
-//        //asin
-//        String asin = params.getAsin();
-//        //sku
-//        String sku = params.getSku();
-//        //负责人
-//        String manager = params.getManager();
-//        //订单日期
-//        Date orderDate = params.getOrderDate();
-
+        //校验分页参数，不合法默认是1，10
         long pageNum =0L;
         long pageSize=10L;
         if(page.getPageNum() > 0) pageNum = page.getPageNum() - 1;
         if (page.getPageSize() >= 1) pageSize = page.getPageSize();
 
+        //校验日期范围，默认是只查询近7天的订单
+        if (!Objects.isNull(params.getAftereData()) && !Objects.isNull(params.getBeforeData())) {
+            params.setBeforeData(LocalDate.now());
+            params.setAftereData(LocalDate.now().minusDays(7));
+        }
         List<OrderQueryDto> list =  orderMapper.selectOrderByParams(new PageDto(pageNum,pageSize),params);
         return list;
     }

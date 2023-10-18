@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -16,7 +17,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderQueryParamDto {
+public class    OrderQueryParamDto {
 
     //订单号
     private String id;
@@ -33,9 +34,9 @@ public class OrderQueryParamDto {
     //负责人
     private String manager;
     //订单日期
-    private Date beforeData;
+    private LocalDate beforeData;
 
-    private Date aftereData;
+    private LocalDate aftereData;
 
 
 
