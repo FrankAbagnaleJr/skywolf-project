@@ -34,6 +34,11 @@ public class Result<T> implements Serializable {
         if (data instanceof Boolean && Boolean.FALSE.equals(data)) res = ResultCode.SYSTEM_EXCEPTION_ERROR;
         return new Result<>(res.getCode(),res.getMsg(), data);
     }
+    public static <T> Result<T> success(String msg,T data) {
+        ResultCode res = ResultCode.SUCCESS;
+        if (data instanceof Boolean && Boolean.FALSE.equals(data)) res = ResultCode.SYSTEM_EXCEPTION_ERROR;
+        return new Result<>(res.getCode(),msg, data);
+    }
     public static <T> Result<T> success(String msg) {
         return new Result<>(ResultCode.SUCCESS.getCode(), msg, null);
     }
