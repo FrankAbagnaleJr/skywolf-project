@@ -5,6 +5,8 @@ import com.kyrie.page.PageParam;
 import com.kyrie.pojo.Order;
 import com.kyrie.pojo.dto.OrderQueryDto;
 import com.kyrie.pojo.dto.OrderQueryParamDto;
+import com.kyrie.pojo.dto.ReportDto;
+import com.kyrie.pojo.dto.ReportParamsDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -23,4 +25,5 @@ public interface OrderService extends IService<Order> {
 
     List<OrderQueryDto> queryOrderByParams(PageParam pageParam, OrderQueryParamDto params);
 
+    ReportDto getReport(ReportParamsDto params);
 }

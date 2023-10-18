@@ -9,6 +9,8 @@ import com.kyrie.pojo.Order;
 
 import com.kyrie.pojo.dto.OrderQueryDto;
 import com.kyrie.pojo.dto.OrderQueryParamDto;
+import com.kyrie.pojo.dto.ReportDto;
+import com.kyrie.pojo.dto.ReportParamsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -65,6 +67,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
         List<OrderQueryDto> list =  orderMapper.selectOrderByParams(new PageParam(pageNum,pageSize),params);
         return list;
+    }
+
+    @Override
+    public ReportDto getReport(ReportParamsDto params) {
+        orderMapper.getReport(params);
+        return null;
     }
 
 }
