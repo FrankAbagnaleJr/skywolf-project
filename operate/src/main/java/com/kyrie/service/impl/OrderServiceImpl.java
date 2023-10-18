@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -44,7 +45,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
-    public List<OrderQueryDto>  queryOrderByParams(PageParam page, OrderQueryParamDto params) {
+    public List<List<?>>  queryOrderByParams(PageParam page, OrderQueryParamDto params) {
 
         //校验分页参数，不合法默认是1，10
         long pageNum =0L;
@@ -65,7 +66,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
             params.setBeforeData(params.getAftereData());
             params.setAftereData(temp);
         }
-        List<OrderQueryDto> list =  orderMapper.selectOrderByParams(new PageParam(pageNum,pageSize),params);
+        List<List<?>> list = orderMapper.selectOrderByParams(new PageParam(pageNum, pageSize), params);
+//        List<OrderQueryDto> list1 = (List<OrderQueryDto>) list.get(0);
+//        Integer total = (Integer) list.get(1).get(0);
         return list;
     }
 

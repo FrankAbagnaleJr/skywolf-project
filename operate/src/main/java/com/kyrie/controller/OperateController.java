@@ -55,8 +55,8 @@ public class OperateController {
      * @return
      */
     @PostMapping("/queryOrder")
-    public Result<List<OrderQueryDto>> queryOrder(PageParam page, @RequestBody(required = false) OrderQueryParamDto params){
-        List<OrderQueryDto> list = orderService.queryOrderByParams(page,params);
+    public Result<List<List<?>>> queryOrder(PageParam page, @RequestBody(required = false) OrderQueryParamDto params){
+        List<List<?>> list = orderService.queryOrderByParams(page,params);
         return Result.success(list);
     }
 

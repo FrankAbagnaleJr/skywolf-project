@@ -43,9 +43,12 @@
             <result column="url" property="imageUrl"/>
         </association>
     </resultMap>
+    <resultMap id="totalNum" type="int">
+        <result column="total" />
+    </resultMap>
 
-    <select id="selectOrderByParams" resultMap="querOrder">
-        select <include refid="querOrderByParam" />
+    <select id="selectOrderByParams" resultMap="querOrder,totalNum">
+        select SQL_CALC_FOUND_ROWS <include refid="querOrderByParam" />
         from t_order o
         left join t_lst_base_info l on o.sku = l.sku
         left join t_product_info p on l.product_id = p.id
@@ -80,7 +83,8 @@
                 and o.date &lt; #{params.aftereData}
             </if>
         </trim>
-        limit #{page.pageNum},#{page.pageSize}
+        limit #{page.pageNum},#{page.pageSize};
+        SELECT found_rows() AS total;
     </select>
 
 </mapper>

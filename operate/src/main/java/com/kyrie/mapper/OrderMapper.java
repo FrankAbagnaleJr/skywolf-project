@@ -8,6 +8,8 @@ import com.kyrie.pojo.dto.OrderQueryParamDto;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * <p>
@@ -19,5 +21,6 @@ import java.util.List;
  */
 public interface OrderMapper extends BaseMapper<Order> {
 
-    List<OrderQueryDto> selectOrderByParams(@Param("page") PageParam page, @Param("params")  OrderQueryParamDto params);
+//    List<OrderQueryDto> selectOrderByParams(@Param("page") PageParam page, @Param("params")  OrderQueryParamDto params);
+    List<List<?>> selectOrderByParams(@Param("page") PageParam page, @Param("params")  OrderQueryParamDto params);
 }

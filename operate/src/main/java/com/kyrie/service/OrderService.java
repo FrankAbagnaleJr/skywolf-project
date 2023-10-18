@@ -23,7 +23,7 @@ public interface OrderService extends IService<Order> {
 
     String inputOrderByExcel(MultipartFile multipartFile) throws IOException;
 
-    List<OrderQueryDto> queryOrderByParams(PageParam pageParam, OrderQueryParamDto params);
+    List<List<?>> queryOrderByParams(PageParam pageParam, OrderQueryParamDto params);
 
     ReportDto getReport(ReportParamsDto params);
 }
