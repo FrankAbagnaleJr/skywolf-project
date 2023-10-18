@@ -44,7 +44,6 @@
         </association>
     </resultMap>
 
-
     <select id="selectOrderByParams" resultMap="querOrder">
         select <include refid="querOrderByParam" />
         from t_order o

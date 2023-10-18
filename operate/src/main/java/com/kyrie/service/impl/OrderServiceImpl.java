@@ -33,7 +33,6 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Autowired
     private OrderMapper orderMapper;
 
-
     @Autowired
     private ExcelImportListener listener;
 
@@ -54,24 +53,25 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         if (page.getPageSize() >= 1) pageSize = page.getPageSize();
 
         //校验日期范围，默认是只查询近7天的订单
-        if (!Objects.isNull(params.getAftereData()) && !Objects.isNull(params.getBeforeData())) {
-            params.setBeforeData(LocalDate.now());
-            params.setAftereData(LocalDate.now().minusDays(7));
+        if (Objects.isNull(params.getAftereData()) && Objects.isNull(params.getBeforeData())) {
+            params.setAftereData(LocalDate.now());
+            params.setBeforeData(LocalDate.now().minusDays(7));
+
         }
+
         //如果日期范围选反了，那么调换位置
-        if (params.getAftereData().isAfter(params.getBeforeData())) {
+        if (params.getBeforeData().isAfter(params.getAftereData())) {
             LocalDate temp = params.getBeforeData();
             params.setBeforeData(params.getAftereData());
             params.setAftereData(temp);
         }
-
         List<OrderQueryDto> list =  orderMapper.selectOrderByParams(new PageParam(pageNum,pageSize),params);
         return list;
     }
 
     @Override
     public ReportDto getReport(ReportParamsDto params) {
-        orderMapper.getReport(params);
+//        orderMapper.getReport(params);
         return null;
     }
 
