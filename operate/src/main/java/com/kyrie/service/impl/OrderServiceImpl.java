@@ -4,7 +4,7 @@ import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kyrie.config.excel.ExcelImportListener;
 import com.kyrie.mapper.OrderMapper;
-import com.kyrie.page.PageDto;
+import com.kyrie.page.PageParam;
 import com.kyrie.pojo.Order;
 
 import com.kyrie.pojo.dto.OrderQueryDto;
@@ -43,7 +43,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
-    public List<OrderQueryDto>  queryOrderByParams(PageDto page, OrderQueryParamDto params) {
+    public List<OrderQueryDto>  queryOrderByParams(PageParam page, OrderQueryParamDto params) {
 
         //校验分页参数，不合法默认是1，10
         long pageNum =0L;
@@ -56,7 +56,14 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
             params.setBeforeData(LocalDate.now());
             params.setAftereData(LocalDate.now().minusDays(7));
         }
-        List<OrderQueryDto> list =  orderMapper.selectOrderByParams(new PageDto(pageNum,pageSize),params);
+        //如果日期范围选反了，那么调换位置
+        if (params.getAftereData().isAfter(params.getBeforeData())) {
+            LocalDate temp = params.getBeforeData();
+            params.setBeforeData(params.getAftereData());
+            params.setAftereData(temp);
+        }
+
+        List<OrderQueryDto> list =  orderMapper.selectOrderByParams(new PageParam(pageNum,pageSize),params);
         return list;
     }
 

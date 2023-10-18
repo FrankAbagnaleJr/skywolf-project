@@ -13,7 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class PageDto {
+public class PageParam {
     private long pageNum;
     private long pageSize;
 

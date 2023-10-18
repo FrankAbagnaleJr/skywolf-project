@@ -2,7 +2,7 @@ package com.kyrie.controller;
 
 
 import com.kyrie.exception.BizException;
-import com.kyrie.page.PageDto;
+import com.kyrie.page.PageParam;
 import com.kyrie.pojo.dto.OrderQueryDto;
 import com.kyrie.pojo.dto.OrderQueryParamDto;
 import com.kyrie.result.Result;
@@ -53,7 +53,7 @@ public class OperateController {
      * @return
      */
     @PostMapping("/queryOrder")
-    public Result<List<OrderQueryDto>> queryOrder(PageDto page, @RequestBody(required = false) OrderQueryParamDto params){
+    public Result<List<OrderQueryDto>> queryOrder(PageParam page, @RequestBody(required = false) OrderQueryParamDto params){
         List<OrderQueryDto> list = orderService.queryOrderByParams(page,params);
         return Result.success(list);
     }

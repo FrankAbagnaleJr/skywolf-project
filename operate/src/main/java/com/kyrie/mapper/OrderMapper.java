@@ -1,7 +1,7 @@
 package com.kyrie.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kyrie.page.PageDto;
+import com.kyrie.page.PageParam;
 import com.kyrie.pojo.Order;
 import com.kyrie.pojo.dto.OrderQueryDto;
 import com.kyrie.pojo.dto.OrderQueryParamDto;
@@ -19,5 +19,5 @@ import java.util.List;
  */
 public interface OrderMapper extends BaseMapper<Order> {
 
-    List<OrderQueryDto> selectOrderByParams(@Param("page") PageDto page,@Param("params")  OrderQueryParamDto params);
+    List<OrderQueryDto> selectOrderByParams(@Param("page") PageParam page, @Param("params")  OrderQueryParamDto params);
 }
