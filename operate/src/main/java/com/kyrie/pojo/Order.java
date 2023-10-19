@@ -64,6 +64,11 @@ public class Order implements Serializable {
      */
     @ExcelProperty("订单状态")
     private String state;
+    /**
+     * 订单状态
+     */
+    @ExcelProperty("预估利润")
+    private Double guessProfit;
 
 
 }

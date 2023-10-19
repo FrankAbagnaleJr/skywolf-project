@@ -15,7 +15,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, money, num, sku, country_id, date, state
+        id, money, num, sku, country_id, date, state,guess_profit
     </sql>
 
     <sql id="querOrderByParam">
