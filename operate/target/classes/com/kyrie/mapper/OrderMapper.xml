@@ -85,7 +85,6 @@
         </trim>
         limit #{page.pageNum},#{page.pageSize};
         SELECT found_rows() AS total;
-
     </select>
 
 </mapper>
