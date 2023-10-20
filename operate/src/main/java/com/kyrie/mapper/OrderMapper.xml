@@ -87,4 +87,32 @@
         SELECT found_rows() AS total;
     </select>
 
+
+    <resultMap id="repotrDto" type="com.kyrie.pojo.dto.ReportDto">
+        <result column="image_url" property="imageUrl" />
+        <result column="sku" property="sku" />
+        <result column="num" property="num" />
+        <result column="profit" property="profit" />
+        <result column="name" property="manager" />
+    </resultMap>
+
+    <select id="getReport" resultMap="repotrDto">
+
+        select l.image_url,o.sku,sum(o.num) num,round(sum(o.guess_profit) ,2) profit,round(round(sum(o.guess_profit) ,2) / sum(o.num),2) profitge,e.name
+        from t_order o
+        join t_dic_country d on o.country_id = d.id
+        join t_dic_order_state dos on o.state = dos.id
+        join t_lst_base_info l on o.sku = l.sku
+        join t_product_info p on l.product_id = p.id
+        join t_employee e on p.user_id = e.id
+        join t_department dep on e.department_id = dep.id
+
+        where o.date &lt; #{params.end} and o.date &gt; #{params.start}
+        group by o.sku
+        order by profit desc
+
+
+
+    </select>
+
 </mapper>

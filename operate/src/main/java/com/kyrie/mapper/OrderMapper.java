@@ -5,6 +5,8 @@ import com.kyrie.page.PageParam;
 import com.kyrie.pojo.Order;
 import com.kyrie.pojo.dto.OrderQueryDto;
 import com.kyrie.pojo.dto.OrderQueryParamDto;
+import com.kyrie.pojo.dto.ReportDto;
+import com.kyrie.pojo.dto.ReportParamsDto;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -23,4 +25,6 @@ public interface OrderMapper extends BaseMapper<Order> {
 
 //    List<OrderQueryDto> selectOrderByParams(@Param("page") PageParam page, @Param("params")  OrderQueryParamDto params);
     List<List<?>> selectOrderByParams(@Param("page") PageParam page, @Param("params")  OrderQueryParamDto params);
+
+    List<ReportDto> getReport(@Param("params") ReportParamsDto params);
 }

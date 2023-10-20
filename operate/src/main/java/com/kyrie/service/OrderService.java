@@ -25,5 +25,5 @@ public interface OrderService extends IService<Order> {
 
     List<List<?>> queryOrderByParams(PageParam pageParam, OrderQueryParamDto params);
 
-    ReportDto getReport(ReportParamsDto params);
+    List<ReportDto> getReport(ReportParamsDto params);
 }

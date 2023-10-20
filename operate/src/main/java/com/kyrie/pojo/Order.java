@@ -1,6 +1,7 @@
 package com.kyrie.pojo;
 
 import com.alibaba.excel.annotation.ExcelProperty;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,6 +27,7 @@ public class Order implements Serializable {
     /**
      * 订单编号
      */
+    @TableId
     @ExcelProperty("订单号")
     private String id;
 
