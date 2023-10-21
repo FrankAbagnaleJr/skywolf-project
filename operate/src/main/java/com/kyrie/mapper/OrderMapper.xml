@@ -19,7 +19,7 @@
     </sql>
 
     <sql id="querOrderByParam">
-        o.id order_id, o.money order_money, o.num order_num, o.state order_state,d.country country ,o.date date,l.sku sku,l.asin asin,l.image_url url,l.product_id product_id,p.name name,e.name manager
+        o.id order_id, o.money order_money, o.num order_num, dos.state order_state,d.country country ,o.date date,l.sku sku,l.asin asin,l.image_url url,l.product_id product_id,p.name name,e.name manager
     </sql>
 
     <resultMap id="querOrder" type="com.kyrie.pojo.dto.OrderQueryDto">
