@@ -53,14 +53,15 @@
         from t_order o
         left join t_lst_base_info l on o.sku = l.sku
         left join t_product_info p on l.product_id = p.id
-        left join t_dic_country d on o.country_id = d.country_id
+        left join t_dic_country d on o.country_id = d.id
         left join t_employee e on p.user_id = e.id
+        left join t_dic_order_state dos on dos.id = o.state
         <trim prefix="where" prefixOverrides="and|or">
             <if test="params.getId != null and params.getId !=''">
                 o.id = #{params.id}
             </if>
             <if test="params.getState != null and params.getState !=''">
-                and o.state = #{params.state}
+                and dos.state = #{params.state}
             </if>
             <if test="params.getName != null and params.getName != ''">
                 and p.`name`= #{params.name}
@@ -106,13 +107,14 @@
 
     <select id="getReport" resultMap="repotrDto,reportTotal">
 
-        <trim prefix="select" prefixOverrides=",">
-            SQL_CALC_FOUND_ROWS
+        select SQL_CALC_FOUND_ROWS
+
+        <trim prefix="" prefixOverrides=",">
             <if test="params.sku == '' and params.manager == '' and params.country == '' and params.department == ''">
                 l.image_url url,o.sku sku,round(sum(o.guess_profit) ,2) profit,sum(o.num) num,e.`name` manager,dep.`name` department,d.country country
             </if>
             <if test="params.sku != ''">
-                ,l.image_url url,o.sku sku
+                l.image_url url,o.sku sku
             </if>
             <if test="params.manager !=''">
                 ,e.`name` manager
