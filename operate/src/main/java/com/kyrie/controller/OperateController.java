@@ -61,8 +61,8 @@ public class OperateController {
     }
 
     @PostMapping("/report")
-    public Result<List> getReport(@RequestBody ReportParamsDto params) {
-        List<ReportDto> report =  orderService.getReport(params);
+    public Result<List<List<?>>> getReport(@RequestBody ReportParamsDto params) {
+        List<List<?>> report =  orderService.getReport(params);
         return Result.success("success", report);
     }
 

@@ -26,5 +26,5 @@ public interface OrderMapper extends BaseMapper<Order> {
 //    List<OrderQueryDto> selectOrderByParams(@Param("page") PageParam page, @Param("params")  OrderQueryParamDto params);
     List<List<?>> selectOrderByParams(@Param("page") PageParam page, @Param("params")  OrderQueryParamDto params);
 
-    List<ReportDto> getReport(@Param("params") ReportParamsDto params);
+    List<List<?>> getReport(@Param("params") ReportParamsDto params);
 }

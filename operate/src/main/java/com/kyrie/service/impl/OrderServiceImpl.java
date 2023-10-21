@@ -73,7 +73,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
-    public List<ReportDto> getReport(ReportParamsDto params) {
+    public List<List<?>> getReport(ReportParamsDto params) {
 
 
         //如果没选时间，默认近7天的数据
@@ -81,7 +81,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
             params.setStart(LocalDate.now().minusDays(7));
             params.setEnd(LocalDate.now());
         }
-        List<ReportDto> list =  orderMapper.getReport(params);
+        List<List<?>> list =  orderMapper.getReport(params);
         return list;
     }
 

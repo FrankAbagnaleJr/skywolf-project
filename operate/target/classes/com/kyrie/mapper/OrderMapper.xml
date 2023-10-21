@@ -99,11 +99,15 @@
         <result column="country" property="country"/>
         <result column="department" property="department"/>
     </resultMap>
+    <resultMap id="reportTotal" type="int">
+        <result column="total"/>
+    </resultMap>
 
 
-    <select id="getReport" resultMap="repotrDto">
+    <select id="getReport" resultMap="repotrDto,reportTotal">
 
         <trim prefix="select" prefixOverrides=",">
+            SQL_CALC_FOUND_ROWS
             <if test="params.sku == '' and params.manager == '' and params.country == '' and params.department == ''">
                 l.image_url url,o.sku sku,round(sum(o.guess_profit) ,2) profit,sum(o.num) num,e.`name` manager,dep.`name` department,d.country country
             </if>
@@ -162,8 +166,8 @@
                 ,d.country
             </if>
         </trim>
-        order by profit desc
-
+        order by profit desc;
+        SELECT found_rows() AS total;
     </select>
 
 </mapper>
