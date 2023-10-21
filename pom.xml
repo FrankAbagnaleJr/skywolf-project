@@ -27,6 +27,7 @@
         <module>commont</module>
         <module>generator</module>
         <module>savehome</module>
+        <module>gateway</module>
     </modules>
 
     <properties>
