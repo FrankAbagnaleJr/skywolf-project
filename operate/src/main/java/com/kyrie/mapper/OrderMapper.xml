@@ -44,11 +44,12 @@
         </association>
     </resultMap>
     <resultMap id="totalNum" type="int">
-        <result column="total" />
+        <result column="total"/>
     </resultMap>
 
     <select id="selectOrderByParams" resultMap="querOrder,totalNum">
-        select SQL_CALC_FOUND_ROWS <include refid="querOrderByParam" />
+        select SQL_CALC_FOUND_ROWS
+        <include refid="querOrderByParam"/>
         from t_order o
         left join t_lst_base_info l on o.sku = l.sku
         left join t_product_info p on l.product_id = p.id
@@ -87,18 +88,39 @@
         SELECT found_rows() AS total;
     </select>
 
+    <!-- #################################################################################### -->
 
     <resultMap id="repotrDto" type="com.kyrie.pojo.dto.ReportDto">
-        <result column="image_url" property="imageUrl" />
-        <result column="sku" property="sku" />
-        <result column="num" property="num" />
-        <result column="profit" property="profit" />
-        <result column="name" property="manager" />
+        <result column="url" property="imageUrl"/>
+        <result column="sku" property="sku"/>
+        <result column="num" property="num"/>
+        <result column="profit" property="profit"/>
+        <result column="manager" property="manager"/>
+        <result column="country" property="country"/>
+        <result column="department" property="department"/>
     </resultMap>
+
 
     <select id="getReport" resultMap="repotrDto">
 
-        select l.image_url,o.sku,sum(o.num) num,round(sum(o.guess_profit) ,2) profit,round(round(sum(o.guess_profit) ,2) / sum(o.num),2) profitge,e.name
+        <trim prefix="select" prefixOverrides=",">
+            <if test="params.sku == '' and params.manager == '' and params.country == '' and params.department == ''">
+                l.image_url url,o.sku sku,round(sum(o.guess_profit) ,2) profit,sum(o.num) num,e.`name` manager,dep.`name` department,d.country country
+            </if>
+            <if test="params.sku != ''">
+                ,l.image_url url,o.sku sku
+            </if>
+            <if test="params.manager !=''">
+                ,e.`name` manager
+            </if>
+            <if test="params.department !=''">
+                ,dep.`name` department
+            </if>
+            <if test="params.country != ''">
+                ,d.country country
+            </if>
+        </trim>
+        ,round(sum(o.guess_profit) ,2) profit,sum(o.num) num
         from t_order o
         join t_dic_country d on o.country_id = d.id
         join t_dic_order_state dos on o.state = dos.id
@@ -107,11 +129,40 @@
         join t_employee e on p.user_id = e.id
         join t_department dep on e.department_id = dep.id
 
-        where o.date &lt; #{params.end} and o.date &gt; #{params.start}
-        group by o.sku
+        <trim prefix="where" prefixOverrides="and|or">
+            o.date &lt; #{params.end} and o.date &gt; #{params.start}
+            <if test="params.sku !=''">
+                and o.sku like '${params.sku}%'
+            </if>
+            <if test="params.manager !=''">
+                and e.name like '${params.manager}%'
+            </if>
+            <if test="params.country !=''">
+                and d.country =  #{params.country}
+            </if>
+            <if test="params.department !=''">
+                and dep.name like '${params.department}%'
+            </if>
+        </trim>
+
+        <trim prefix="group by" prefixOverrides=",">
+            <if test="params.sku == '' and params.manager == '' and params.country == '' and params.department == ''">
+                d.country,dep.`name`,e.`name`,o.sku
+            </if>
+            <if test="params.sku != ''">
+                ,o.sku
+            </if>
+            <if test="params.manager !=''">
+                ,e.`name`
+            </if>
+            <if test="params.department !=''">
+                ,dep.`name`
+            </if>
+            <if test="params.country != ''">
+                ,d.country
+            </if>
+        </trim>
         order by profit desc
-
-
 
     </select>
 

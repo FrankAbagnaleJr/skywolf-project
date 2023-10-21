@@ -14,11 +14,18 @@ import java.time.LocalDate;
  */
 @Data
 public class ReportParamsDto {
+    //订单开始时间
     private LocalDate start;
+    //订单结束时间
     private LocalDate end;
+    //报表类型
     private String reportType;
+    //部门
     private String department;
-    private String userName;
-    private String product;
+    //负责人
+    private String manager;
+    //sku
+    private String sku;
+    //国家
     private String country;
 }

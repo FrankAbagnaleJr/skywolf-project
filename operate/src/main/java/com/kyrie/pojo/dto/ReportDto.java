@@ -12,11 +12,20 @@ import lombok.Data;
 @Data
 public class ReportDto {
 
+    //产品图片
     private String imageUrl;
+    //sku
     private String sku;
+    //销量
     private String num;
+    //利润
     private String profit;
+    //负责人
     private String manager;
+    //国家
+    private String country;
+    //部门
+    private String department;
 
 
 
