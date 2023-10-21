@@ -1,0 +1,22 @@
+#server:
+#  port: 9099
+#  servlet:
+#    context-path: /gateway
+
+spring:
+  application:
+    name: gateway-service
+
+  cloud:
+    nacos:
+      server-addr: 192.168.101.67:8848   #nacos地址
+      discover:   #读取配置相关的信息 -----添加了注册发现依赖然后配置的
+        namespace: skywolf  #空间名
+        group: skywolf  #分组名
+      config:  #配置文件相关信息  -----添加了读取配置文件依赖后配置的
+        namespace: skywolf
+        group: DEFAULT_GROUP
+        file-extension: yaml
+        refresh-enabled: true
+    # profiles:  #环境名字
+  #  active: dev   #GroupID：content-api-dev.yaml  中间拼的dev就是这个
