@@ -1,5 +1,7 @@
 package com.kyrie.pojo.dto;
 
+import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
+import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.Data;
 
 /**
@@ -13,18 +15,25 @@ import lombok.Data;
 public class ReportDto {
 
     //产品图片
+    @ExcelProperty("产品图片")
     private String imageUrl;
     //sku
+    @ExcelProperty("sku")
     private String sku;
     //销量
+    @ExcelProperty("销量")
     private String num;
     //利润
+    @ExcelProperty("利润")
     private String profit;
     //负责人
+    @ExcelProperty("负责人")
     private String manager;
     //国家
+    @ExcelProperty("国家")
     private String country;
     //部门
+    @ExcelProperty("部门")
     private String department;
 
 

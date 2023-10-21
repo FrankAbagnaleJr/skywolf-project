@@ -9,10 +9,13 @@ import com.kyrie.pojo.dto.ReportDto;
 import com.kyrie.pojo.dto.ReportParamsDto;
 import com.kyrie.result.Result;
 import com.kyrie.service.OrderService;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,6 +29,7 @@ import java.util.List;
  */
 
 @RestController
+@Slf4j
 @RequestMapping("/v1")
 public class OperateController {
 
@@ -60,10 +64,28 @@ public class OperateController {
         return Result.success(list);
     }
 
+    /**
+     * 报表数据查看接口
+     * @param params
+     * @return
+     */
+
     @PostMapping("/report")
-    public Result<List<List<?>>> getReport(@RequestBody ReportParamsDto params) {
-        List<List<?>> report =  orderService.getReport(params);
+    public Result<List<List<Object>>> getReport(@RequestBody ReportParamsDto params) {
+        List<List<Object>> report =  orderService.getReport(params);
         return Result.success("success", report);
+    }
+
+    /**
+     * 报表数据导出接口
+     * @param response
+     * @param params
+     * @return
+     */
+    @PostMapping("/report/download")
+    public Result getReportExcel(HttpServletResponse response, @RequestBody ReportParamsDto params){
+        boolean flag = orderService.getReportExcel(response,params);
+        return Result.success(flag?"导出成功":"导出失败",flag);
     }
 
 }

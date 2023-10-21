@@ -9,6 +9,7 @@ import com.kyrie.pojo.dto.ReportDto;
 import com.kyrie.pojo.dto.ReportParamsDto;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -25,5 +26,7 @@ public interface OrderService extends IService<Order> {
 
     List<List<?>> queryOrderByParams(PageParam pageParam, OrderQueryParamDto params);
 
-    List<List<?>> getReport(ReportParamsDto params);
+    List<List<Object>> getReport(ReportParamsDto params);
+
+    boolean getReportExcel(HttpServletResponse response, ReportParamsDto params);
 }
