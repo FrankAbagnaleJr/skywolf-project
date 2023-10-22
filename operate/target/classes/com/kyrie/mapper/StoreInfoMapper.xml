@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyrie.mapper.StoreInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kyrie.pojo.StoreInfo">
+        <id column="id" property="id" />
+        <result column="store_code" property="storeCode" />
+        <result column="store_name" property="storeName" />
+        <result column="country_id" property="countryId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, store_code, store_name, country_id
+    </sql>
+
+</mapper>

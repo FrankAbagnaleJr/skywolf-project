@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyrie.mapper.DevDayDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kyrie.pojo.DevDayData">
+        <result column="asin" property="asin" />
+        <result column="sku" property="sku" />
+        <result column="adv_order" property="advOrder" />
+        <result column="adv_consume" property="advConsume" />
+        <result column="adv_sales_money" property="advSalesMoney" />
+        <result column="browse" property="browse" />
+        <result column="click" property="click" />
+        <result column="ctr" property="ctr" />
+        <result column="cvr" property="cvr" />
+        <result column="click_fee" property="clickFee" />
+        <result column="acos" property="acos" />
+        <result column="plan" property="plan" />
+        <result column="country_id" property="countryId" />
+        <result column="date" property="date" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        asin, sku, adv_order, adv_consume, adv_sales_money, browse, click, ctr, cvr, click_fee, acos, plan, country_id, date
+    </sql>
+
+</mapper>

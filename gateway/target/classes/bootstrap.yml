@@ -1,15 +1,14 @@
 spring:
   application:
     name: gateway-service
-
   cloud:
     nacos:
       server-addr: 192.168.101.67:8848
-      discover:
-        namespace: skywolf
-        group: skywolf
+      discovery:
+        namespace: skywolf-dev
+        group: skywolf-project
       config:
-        namespace: skywolf
+        namespace: skywolf-dev
         group: DEFAULT_GROUP
         file-extension: yaml
         refresh-enabled: true
