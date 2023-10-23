@@ -9,21 +9,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>express</artifactId>
+    <groupId>come.kyrie</groupId>
+    <artifactId>warehouse</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-
-    <dependencies>
-        <dependency>
-            <groupId>com.kyrie</groupId>
-            <artifactId>commont</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
 </project>
