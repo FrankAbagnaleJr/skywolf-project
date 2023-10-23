@@ -54,20 +54,20 @@ public class JGenerator {
 
 	// FIXME 要生成的表名
 	private static final String[] TABLE_NAMES = new String[]{
-			"t_country_sales_day_data",
-			"t_dev_day_data",
-			"t_dic_country",
-			"t_dic_lst_state",
-			"t_fba_stock_day_data",
-			"t_lst_base_info",
-			"t_lst_coupon_day_data",
-			"t_lst_day_data",
-			"t_order",
-			"t_product_info",
-			"t_store_info",
-			"t_employee",
-			"t_department",
-			"t_express_plan"
+			"t_fns_procure"
+//			"t_dev_day_data",
+//			"t_dic_country",
+//			"t_dic_lst_state",
+//			"t_fba_stock_day_data",
+//			"t_lst_base_info",
+//			"t_lst_coupon_day_data",
+//			"t_lst_day_data",
+//			"t_order",
+//			"t_product_info",
+//			"t_store_info",
+//			"t_employee",
+//			"t_department",
+//			"t_express_plan"
 	};
 
 	// FIXME 生成代码存放的目录
