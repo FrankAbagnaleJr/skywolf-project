@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyrie.mapper.FnsProcureMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kyrie.pojo.FnsProcure">
+        <id column="id" property="id" />
+        <result column="date" property="date" />
+        <result column="store" property="store" />
+        <result column="sale_image" property="saleImage" />
+        <result column="asin" property="asin" />
+        <result column="applicant" property="applicant" />
+        <result column="procure_reason" property="procureReason" />
+        <result column="procure_image" property="procureImage" />
+        <result column="product_name" property="productName" />
+        <result column="procure_url" property="procureUrl" />
+        <result column="procure_model" property="procureModel" />
+        <result column="procure_num" property="procureNum" />
+        <result column="procure_price" property="procurePrice" />
+        <result column="about_fee" property="aboutFee" />
+        <result column="note" property="note" />
+        <result column="procure_market" property="procureMarket" />
+        <result column="order_num" property="orderNum" />
+        <result column="pay_fee" property="payFee" />
+        <result column="express_type" property="expressType" />
+        <result column="express_num" property="expressNum" />
+        <result column="order_state" property="orderState" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, date, store, sale_image, asin, applicant, procure_reason, procure_image, product_name, procure_url, procure_model, procure_num, procure_price, about_fee, note, procure_market, order_num, pay_fee, express_type, express_num, order_state
+    </sql>
+
+</mapper>
